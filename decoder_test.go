@@ -77,7 +77,7 @@ func TestDecodeIBCBase64Tx(t *testing.T) {
 
 func TestDecodePioTx(t *testing.T) {
     decoder := piotxdecoder.DefaultDecoder
-    //https://www.mintscan.io/cosmos/txs/E3944CB1AF60EB1649B2DC9EBB6C67FFCCE17C6E44259417F4C4A657D9206B6E
+    // https://explorer.provenance.io/tx/6846F60882EA35C14C2A6ADEA28161DD4735FF1625909E724823C774BC0C7169
     res, err := decoder.DecodeBase64("Cq0BCqoBCi8vcHJvdmVuYW5jZS5hdHRyaWJ1dGUudjEuTXNnQWRkQXR0cmlidXRlUmVxdWVzdBJ3CgtueWNiLmt5Yy5wYhIQqWWfDZFBOzSRGC9vTS5MPhgIIilwYjFldmRqamNhZ2xsZ3lmMjNwemY3ZTJna3ZmdWFrZWdzbnY0OXloaiopcGIxbWN5dWt2NzN2NTdqbTJjcTQ4cDZ5NjY2a3FqZWQ4c3V5cGhzaHESJAoIEgQKAggBGBcSGAoSCgVuaGFzaBIJMTQ3NTA5ODY1EPncBBpA7aK9ZJo4yzbRhsPOM2ZvPIVpgLHL0TNuSY6CHjVHPFoZVlYwgsyEIfOD6yEohATsZST8Fl1bt2yhWaiGhq6RiA==")
     assert.NoError(t, err)
     assert.NotNil(t, res)
