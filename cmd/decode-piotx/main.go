@@ -1,24 +1,31 @@
 package main
 
 import (
+	"encoding/hex"
 	"fmt"
 	"io"
 	"os"
 
-	. "github.com/calvinlauyh/cosmosutils"
+	. "github.com/arnabmitra/piotxdecoder"
 )
 
 func main() {
 	if len(os.Args) == 1 {
-		fmt.Fprintln(os.Stderr, "Error: Missing base64 transaction string")
+		fmt.Fprintln(os.Stderr, "Error: Missing transaction hex")
 		printUsage(os.Stderr)
 		os.Exit(1)
 	}
 
-	base64Tx := os.Args[1]
+	txHex := os.Args[1]
+	txBytes, err := hex.DecodeString(txHex)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "Error: Invalid transaction hex")
+		printUsage(os.Stderr)
+		os.Exit(1)
+	}
 
 	decoder := DefaultDecoder
-	tx, err := decoder.DecodeBase64(base64Tx)
+	tx, err := decoder.Decode(txBytes)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Error: Invalid transaction")
 		printUsage(os.Stderr)
@@ -37,5 +44,5 @@ func main() {
 
 func printUsage(w io.Writer) {
 	fmt.Fprintln(w, `Usage:
-decode-cosmosbase64tx [base64 encoded transaction]`)
+decode-cosmostx [transaction hex]`)
 }

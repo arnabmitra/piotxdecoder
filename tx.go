@@ -1,4 +1,4 @@
-package cosmosutils
+package piotxdecoder
 
 import (
 	"github.com/cosmos/cosmos-sdk/codec"

@@ -1,4 +1,4 @@
-package cosmosutils
+package piotxdecoder
 
 import (
 	"fmt"

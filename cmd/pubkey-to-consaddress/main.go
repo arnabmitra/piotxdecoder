@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	. "github.com/calvinlauyh/cosmosutils"
+	. "github.com/arnabmitra/piotxdecoder"
 	"github.com/thatisuday/commando"
 )
 
@@ -23,7 +23,7 @@ func main() {
 		SetShortDescription("Convert cosmos consensus pubkey/ tendermint pubkey to cosmos consensus address").
 		SetDescription("This command convert cosmos consensus pubkey/ tendermint pubkey to cosmos consensus address with cosmos bech prefix provided").
 		AddArgument("pubkey", "pubkey for cosmos consensus pubkey; add '-t' for tendermint pubkey", "").
-		AddFlag("prefix,p", "bech32 prefix for Consensus Address", commando.String, "tcrocnclcons"). // required
+		AddFlag("prefix,p", "bech32 prefix for Consensus Address", commando.String, "pbvalcons"). // required
 		AddFlag("tmpubkey,t", "tendermint pubkey for pubkey format", commando.Bool, false).          // required
 		SetAction(func(args map[string]commando.ArgValue, flags map[string]commando.FlagValue) {
 			var err error

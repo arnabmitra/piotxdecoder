@@ -1,4 +1,4 @@
-module github.com/calvinlauyh/cosmosutils
+module github.com/arnabmitra/piotxdecoder
 
 go 1.15
 
