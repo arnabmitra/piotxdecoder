@@ -70,8 +70,8 @@ func TestDecodeIBCBase64Tx(t *testing.T) {
     assert.NoError(t, err)
     assert.NotNil(t, res)
 
-    jsonBytes, err := res.MarshalToJSON()
-
+    jsonBytes, errM := res.MarshalToJSON()
+    assert.NoError(t, errM)
     fmt.Println(string(jsonBytes))
 }
 
@@ -82,8 +82,8 @@ func TestDecodePioTx(t *testing.T) {
     assert.NoError(t, err)
     assert.NotNil(t, res)
 
-    jsonBytes, err := res.MarshalToJSON()
-
+    jsonBytes, errM := res.MarshalToJSON()
+    assert.NoError(t, errM)
     fmt.Println(string(jsonBytes))
 }
 

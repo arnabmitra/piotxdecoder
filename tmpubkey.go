@@ -16,11 +16,11 @@ func ConsensusNodeAddressFromTmPubKey(bech32Prefix string, pubKey []byte) (strin
 
 	conv, err := bech32.ConvertBits(cosmosPubKey.Address().Bytes(), 8, 5, true)
 	if err != nil {
-		return "", fmt.Errorf("error converting tendermint public key to bech32 bits: %v", err)
+		return "", fmt.Errorf("error converting tendermint public key to bech32 bits: %w", err)
 	}
 	address, err := bech32.Encode(bech32Prefix, conv)
 	if err != nil {
-		return "", fmt.Errorf("error encoding tendermint public key bits to consensus address: %v", err)
+		return "", fmt.Errorf("error encoding tendermint public key bits to consensus address: %w", err)
 	}
 
 	return address, nil
@@ -34,18 +34,18 @@ func ConsensusNodeAddressFromPubKey(bech32Prefix string, consensusNodePubKey str
 
 	pkToUnmarshal, err := bech32.ConvertBits(conv, 5, 8, false)
 	if err != nil {
-		return "", fmt.Errorf("error converting bech32 bits to tendermint public key: %v", err)
+		return "", fmt.Errorf("error converting bech32 bits to tendermint public key: %w", err)
 	}
 	var pubKey cryptotypes.PubKey
 	legacy.Cdc.MustUnmarshal(pkToUnmarshal, &pubKey)
 
 	conv, err = bech32.ConvertBits(pubKey.Address().Bytes(), 8, 5, true)
 	if err != nil {
-		return "", fmt.Errorf("error converting tendermint public key to bech32 bits: %v", err)
+		return "", fmt.Errorf("error converting tendermint public key to bech32 bits: %w", err)
 	}
 	address, err := bech32.Encode(bech32Prefix, conv)
 	if err != nil {
-		return "", fmt.Errorf("error encoding tendermint public key bits to consensus address: %v", err)
+		return "", fmt.Errorf("error encoding tendermint public key bits to consensus address: %w", err)
 	}
 
 	return address, nil

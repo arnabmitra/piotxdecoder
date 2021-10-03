@@ -13,9 +13,9 @@ If you need to add more add it here `RegisterDefaultInterfaces`
 
 The project shipped with a few binaries:
 workflows
-- `decode-cosmosbase64tx [base64-encoded-tx]`
+- `decode-piobase64tx [base64-encoded-tx]`
     - Decode transaction encoded in base64. This is usually find in Cosmos SDK CLI and Tendermint block API endpoint.
-- `decode-cosmostx [hex-encoded-tx]`
+- `decode-piotx [hex-encoded-tx]`
     - Decode transaction encoded in hex string
 - `pubkey-to-consaddress [pubkey] -p [prefix][ -t]`
     - Convert bech32 consensus pubkey / Tenedermint pubkey to bech32 consensus address
@@ -152,35 +152,7 @@ func RegisterInterfaces(interfaceRegistry types.InterfaceRegistry) {
 
 ## Cosmos Stargate Compatibility
 
-The latest version of this package is based on Cosmos SDK `v0.41.0`. For backward compatibility, release versions for v0.40.0 are suffixed with their Cosmos SDK rc version.
-
-| Cosmos SDK Version | Library Version (Git Branch) |
-| --- | --- |
-| v0.43.0 | >= `release/v0.0.8` |
-| v0.41.0 | >= `release/v0.0.4` |
-| v0.40.0-rc{n} | `release/v0.0.1-rc{n}` to `release/v0.0.3-rc{n}` |
-
-For example, if the transaction comes from a chain using Cosmos SDK `v0.40.0-rc1`:
-```bash
-go checkout release/v0.0.1-rc1
-```
-```
-# go.mod
-
-...
-require (
-    github.com/arnabmitra/cosmostxdecode v0.0.1-rc3
-    ...
-)
-
-replace github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.2-alpha.regen.4
-
-# Replace `rc1` of the following two lines with your desired Cosmos SDK rc version
-
-replace github.com/cosmos/cosmos-sdk => github.com/cosmos/cosmos-sdk v0.40.0-rc1
-
-replace github.com/arnabmitra/piotxdecoder => github.com/arnabmitra/piotxdecoder v0.0.1-rc1
-```
+The latest version of this package is based on Cosmos SDK `v0.42.0`. 
 
 ## License
 
