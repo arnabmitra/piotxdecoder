@@ -1,6 +1,7 @@
 package piotxdecoder
 
 import (
+	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
 	"github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/std"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
@@ -16,9 +17,8 @@ import (
 	slashingtypes "github.com/cosmos/cosmos-sdk/x/slashing/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
-	ibctransfertypes "github.com/cosmos/ibc-go/modules/apps/transfer/types"
-	ibctypes "github.com/cosmos/ibc-go/modules/core/types"
-	nfttypes "github.com/crypto-org-chain/chain-main/v3/x/nft/types"
+	ibctransfertypes "github.com/cosmos/ibc-go/v2/modules/apps/transfer/types"
+	ibctypes "github.com/cosmos/ibc-go/v2/modules/core/types"
 	attributetypes "github.com/provenance-io/provenance/x/attribute/types"
 	markertypes "github.com/provenance-io/provenance/x/marker/types"
 	metadatatypes "github.com/provenance-io/provenance/x/metadata/types"
@@ -41,11 +41,11 @@ func RegisterDefaultInterfaces(interfaceRegistry types.InterfaceRegistry) {
 	vestingtypes.RegisterInterfaces(interfaceRegistry)
 	ibctypes.RegisterInterfaces(interfaceRegistry)
 	ibctransfertypes.RegisterInterfaces(interfaceRegistry)
-	nfttypes.RegisterInterfaces(interfaceRegistry)
 	authztypes.RegisterInterfaces(interfaceRegistry)
 	feegranttypes.RegisterInterfaces(interfaceRegistry)
 	markertypes.RegisterInterfaces(interfaceRegistry)
 	nametypes.RegisterInterfaces(interfaceRegistry)
 	metadatatypes.RegisterInterfaces(interfaceRegistry)
 	attributetypes.RegisterInterfaces(interfaceRegistry)
+	wasmtypes.RegisterInterfaces(interfaceRegistry)
 }
